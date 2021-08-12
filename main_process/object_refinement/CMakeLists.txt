@@ -20,7 +20,11 @@ endif(${CMAKE_SYSTEM} MATCHES "Darwin")
 add_executable(Object_refinement object_refinement.cpp SLIC/SLIC.cpp object_refinement_cali.cpp depth_filling.cpp ../../base/point_cloud.cc ../../base/kdtree/KDtree.cc ../../base/panorama.cc ../../base/floorplan.cc ../../base/indoor_polygon.cc MRF/BP-S.cpp MRF/GCoptimization.cpp MRF/ICM.cpp MRF/LinkedBlockList.cpp MRF/MaxProdBP.cpp MRF/TRW-S.cpp MRF/graph.cpp MRF/maxflow.cpp MRF/mrf.cpp MRF/regions-maxprod.cpp)
 
 target_link_libraries(Object_refinement gflags)
-target_link_libraries(Object_refinement opencv_core opencv_highgui opencv_imgproc opencv_flann)
+target_link_libraries(Object_refinement 
+
+${OpenCV_LIBS}
+# opencv_core opencv_highgui opencv_imgproc opencv_flann
+)
 # target_link_libraries(Object_hole_filling MRF)
 
 if(${CMAKE_SYSTEM} MATCHES "Linux")

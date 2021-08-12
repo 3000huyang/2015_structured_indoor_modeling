@@ -3,6 +3,7 @@ project(generate_texture_cli)
 
 FIND_PACKAGE(OpenCV REQUIRED)
 
+find_package(Eigen3 REQUIRED)
 #find_package( OpenCV REQUIRED )
 LINK_DIRECTORIES(/usr/local/lib)
 
@@ -19,6 +20,9 @@ if (WIN32)
 	include_directories("C:\\gflags-2.1.1\\include")
 	link_directories("C:\\gflags-2.1.1\\lib")	
 endif (WIN32)
+if(${CMAKE_SYSTEM} MATCHES "Linux")
+   include_directories("/usr/include/eigen3")
+endif(${CMAKE_SYSTEM} MATCHES "Linux")
 
 add_executable( generate_texture_floorplan_cli generate_texture.cc generate_texture_floorplan_cli.cc generate_texture_floorplan.cc synthesize.cc ../../base/floorplan.cc ../../base/panorama.cc ../../base/point_cloud.cc ../../base/imageProcess/morphological_operation.cc )
 target_link_libraries( generate_texture_floorplan_cli ${OpenCV_LIBS} )

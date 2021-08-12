@@ -1,7 +1,7 @@
 #ifndef TRANSFORMATION_H__
 #define TRANSFORMATION_H__
 
-#include <Eigen/dense>
+#include <Eigen/Dense>
 
 namespace structured_indoor_modeling {
 

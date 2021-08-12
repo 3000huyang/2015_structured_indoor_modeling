@@ -19,6 +19,10 @@ if (WIN32)
 	link_directories("C:\\gflags-2.1.1\\lib")	
 endif (WIN32)
 
+if(${CMAKE_SYSTEM} MATCHES "Linux")
+   include_directories("/usr/include/eigen3")
+endif(${CMAKE_SYSTEM} MATCHES "Linux")
+
 add_executable( indoor_polygon_to_dae_cli indoor_polygon_to_dae_cli.cc ../../base/indoor_polygon.cc )
 target_link_libraries( indoor_polygon_to_dae_cli ${OpenCV_LIBS} )
 target_link_libraries( indoor_polygon_to_dae_cli gflags )

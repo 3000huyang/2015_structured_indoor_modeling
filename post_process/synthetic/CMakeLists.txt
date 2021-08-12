@@ -19,6 +19,10 @@ if (WIN32)
 	link_directories("C:\\gflags-2.1.1\\lib")	
 endif (WIN32)
 
+if(${CMAKE_SYSTEM} MATCHES "Linux")
+   include_directories("/usr/include/eigen3")
+endif(${CMAKE_SYSTEM} MATCHES "Linux")
+
 add_executable( generate_synthetic_data_cli generate_synthetic_data_cli.cc )
 TARGET_LINK_LIBRARIES( generate_synthetic_data_cli ${OpenCV_LIBS} )
 TARGET_LINK_LIBRARIES( generate_synthetic_data_cli gflags )

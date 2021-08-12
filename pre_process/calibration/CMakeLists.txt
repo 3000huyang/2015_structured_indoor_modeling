@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(align_images_cli)
 find_package( OpenCV REQUIRED )
+find_package(Eigen3 REQUIRED)
 FIND_PACKAGE(Ceres REQUIRED)
 # FIND_PACKAGE(gflags REQUIRED)
 INCLUDE_DIRECTORIES(${CERES_INCLUDE_DIRS})
